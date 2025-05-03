@@ -85,7 +85,7 @@ def load(app):
     #######################
     @provider_blueprint.route('/<string:auth_provider>/confirm', methods=['GET'])
     def confirm_auth_provider(auth_provider):
-        if not provider_users.has_key(auth_provider):
+        if not auth_provider in provider_users.keys():
             return redirect('/')
 
         provider_user = provider_users[oauth_provider]() # Resolved lambda
